@@ -85,7 +85,7 @@ class IoServer {
 
         $uri = $conn->getRemoteAddress();
         $conn->decor->remoteAddress = trim(
-            parse_url((strpos($uri, '://') === false ? 'tcp://' : '') . $uri, PHP_URL_HOST),
+            parse_url((strpos(($uri ?? ''), '://') === false ? 'tcp://' : '') . $uri, PHP_URL_HOST),
             '[]'
         );
 
